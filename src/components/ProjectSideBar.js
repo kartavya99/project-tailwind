@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const ProjectSideBar = () => {
   return (
@@ -7,7 +8,7 @@ const ProjectSideBar = () => {
         Your Project
       </h2>
       <div>
-        <button> + Add Project</button>
+        <Button>+ Add Project</Button>
       </div>
       <ul className="mt-8">
         <p>Project 1</p>
