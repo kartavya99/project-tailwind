@@ -4,6 +4,7 @@ import ProjectSideBar from "./components/ProjectSideBar";
 import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
 import SelectedProject from "./components/SelectedProject";
+import Header from "./components/Header";
 
 function App() {
   const [projectsState, setProjectsState] = useState({
@@ -24,7 +25,7 @@ function App() {
     setProjectsState((prevState) => {
       return {
         ...prevState,
-        selectedProjectId: null,
+        selectedProjectId: undefined,
       };
     });
   }
@@ -83,15 +84,18 @@ function App() {
   }
 
   return (
-    <main className="h-screen my-8 flex gap-8">
-      <ProjectSideBar
-        onStartAddProject={handleStartAddProject}
-        projects={projectsState.projects}
-        onSelectProject={handleSelectProject}
-        selectedProjectId={projectsState.selectedProjectId}
-      />
-      {content}
-    </main>
+    <>
+      <Header />
+      <main className="h-screen my-8 flex gap-8">
+        <ProjectSideBar
+          onStartAddProject={handleStartAddProject}
+          projects={projectsState.projects}
+          onSelectProject={handleSelectProject}
+          selectedProjectId={projectsState.selectedProjectId}
+        />
+        {content}
+      </main>
+    </>
   );
 }
 
